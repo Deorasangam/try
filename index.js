@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -18,7 +20,8 @@ const { jwtSecret } = require("./config/jwt");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = "mongodb://127.0.0.1:27017/rental";
+const MONGO_URI =
+  "mongodb+srv://Test:Hnk4d7daSLWSSTBB@rental0.fkwh5un.mongodb.net/rental?retryWrites=true&w=majority&appName=rental0";
 
 // Multer setup for image uploads
 const storage = multer.memoryStorage();
@@ -32,8 +35,6 @@ const ObjectId = require("mongoose").Types.ObjectId;
 // Connect to MongoDB
 mongoose
   .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000,
     socketTimeoutMS: 45000,
   })
