@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 // Import models
-const Property = require("./models/Property");
+const Property = require("./models/property");
 const User = require("./models/User");
 const Booking = require("./models/Booking");
 //const bookingRoutes = require("./routes/bookingRoutes");
@@ -31,6 +31,10 @@ const upload = multer({ storage });
 app.use(express.json());
 app.use(cors());
 const ObjectId = require("mongoose").Types.ObjectId;
+
+// Serve static files
+app.use(express.static(path.join(__dirname)));
+app.use("/favicon.ico", express.static(path.join(__dirname, "favicon1.jpg")));
 
 // Connect to MongoDB
 mongoose
