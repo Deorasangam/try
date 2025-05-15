@@ -108,6 +108,13 @@ app.get("/profile", authenticateToken, async (req, res) => {
     res.status(500).json({ error: "Error fetching profile" });
   }
 });
+app.get("/", (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false,
+    message: "Server is running",
+  });
+});
 
 // Update the NewProperty route in index.js to handle amenities
 
